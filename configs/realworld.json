@@ -1,0 +1,37 @@
+{
+  "seed": 42,
+  "dataset": {
+    "root": "../Dataset/real_world",
+    "train_split": "train",
+    "validation_split": "test",
+    "train_patch_size": 128,
+    "validation_patch_size": 128
+  },
+  "model": {
+    "spectral_bands": 16,
+    "latent_bands": 4,
+    "bins": 9,
+    "msfa_size": 4,
+    "chunk_pixels": 65536,
+    "backend": "torch",
+    "official_root": "../Pan-LUT-main",
+    "input_order": "spectral_pan",
+    "share_sdlut_directions": true,
+    "regularization_reduction": "sum"
+  },
+  "loss": {
+    "smoothness_weight": 0.0001,
+    "monotonicity_weight": 10.0
+  },
+  "training": {
+    "epochs": 1000,
+    "batch_size": 1,
+    "learning_rate": 0.0001,
+    "num_workers": 0,
+    "validation_frequency": 1,
+    "consistency_weight": 1.0,
+    "scheduler_step": 200,
+    "scheduler_gamma": 0.5,
+    "checkpoint_dir": "outputs/realworld_checkpoints"
+  }
+}
